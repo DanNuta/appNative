@@ -1,10 +1,14 @@
-import { View, Text, Image, StyleSheet } from "react-native";
-
+import { View, Image, StyleSheet } from "react-native";
 import { assets, COLORS, SHADOWS, SIZES } from "../constants";
 import { CircleButton, RectButton } from "./";
 import { NFTTitle, SubInfo, ETHPrice } from "./SubInfo";
 
-export const NFTCard = (props, { navigation }) => {
+export const NFTCard = (props) => {
+  function navigate() {
+    const { item } = props;
+    props.navigate.navigate("Reviw", { item });
+  }
+
   return (
     <View style={style.card}>
       <View style={style.imagesContainer}>
@@ -29,7 +33,7 @@ export const NFTCard = (props, { navigation }) => {
 
         <View style={style.price}>
           <ETHPrice price={props.item.price} />
-          <RectButton handlePress={() => console.log("salut")} />
+          <RectButton handlePress={navigate} />
         </View>
       </View>
     </View>

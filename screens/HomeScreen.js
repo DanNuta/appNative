@@ -1,8 +1,7 @@
-import React from "react";
-import { Text, Button, View, FlatList} from "react-native";
+import { Text, Button, View, FlatList } from "react-native";
 import { COLORS, NFTData } from "../constants";
 
-import { Home, NFTCard, FocusedStatus, HomeHeader } from "../components";
+import { NFTCard, FocusedStatus, HomeHeader } from "../components";
 
 export const HomeScreen = ({ navigation }) => {
   return (
@@ -14,12 +13,14 @@ export const HomeScreen = ({ navigation }) => {
           data={NFTData}
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
-          ListHeaderComponent={<HomeHeader/>}
-          renderItem={({item}) => {
-           return <NFTCard item={item}/>
+          ListHeaderComponent={<HomeHeader />}
+          renderItem={({ item }) => {
+            return <NFTCard navigate={navigation} item={item} />;
           }}
         />
       </View>
+
+      <Button title="Rewiew" />
     </>
   );
 };

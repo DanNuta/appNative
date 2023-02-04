@@ -6,5 +6,7 @@ import { StatusBar } from "react-native";
 export const FocusedStatus = (props) => {
   const isFocused = useIsFocused();
 
-  return isFocused ? <StatusBar animated={true} backgroundColor={props.backgroundColor}/> : null;
+  return isFocused ? (
+    <StatusBar animated={true} backgroundColor={props.backgroundColor} />
+  ) : null;
 };

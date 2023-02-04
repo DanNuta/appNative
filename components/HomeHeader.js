@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, TextInput, onPress } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  onPress,
+} from "react-native";
 import React from "react";
 import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 
@@ -32,9 +39,17 @@ export const HomeHeader = () => {
 
       <View onPress={() => console.log("sa;;")} style={style.search}>
         <View onPress={() => console.log("sa;;")}>
-           <Image style={style.searchImg} resizeMode="contain" source={assets.search} />
+          <Image
+            style={style.searchImg}
+            resizeMode="contain"
+            source={assets.search}
+          />
         </View>
-        <TextInput style={style.input} placeholder="Search" onChange={() => console.log("sa")} />
+        <TextInput
+          style={style.input}
+          placeholder="Search"
+          onChange={() => console.log("sa")}
+        />
       </View>
     </View>
   );
@@ -88,7 +103,7 @@ const style = StyleSheet.create({
   searchImg: {
     width: 20,
     height: 20,
-    marginRight: SIZES.font
+    marginRight: SIZES.font,
   },
 
   search: {

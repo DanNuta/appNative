@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
-import { SIZES, FONTS, COLORS, SHADOWS , assets} from "../constants";
+import { SIZES, COLORS, SHADOWS, assets } from "../constants";
 
 export const NFTTitle = (props) => {
   return (
     <View>
-      <Text >{props.title}</Text>
-      <Text >{props.subTitle}</Text>
+      <Text>{props.title}</Text>
+      <Text>{props.subTitle}</Text>
     </View>
   );
 };
@@ -14,7 +14,7 @@ export const NFTTitle = (props) => {
 export const ETHPrice = (props) => {
   return (
     <View style={style.price}>
-        <Image source={assets.eth}/>
+      <Image source={assets.eth} />
       <Text>{props.price}</Text>
     </View>
   );
@@ -61,6 +61,28 @@ export const SubInfo = (props) => {
   );
 };
 
+
+const Contribution = (props) => {
+  return (
+    <View>
+      <Text>{`Bid place by ${props.people}`}</Text>
+      <Text>{props.data}</Text>
+    </View>
+  )
+}
+
+
+export const ContributionPerson = (props) => {
+  return (
+
+    <View style={style.contribution}>
+      <Image style={style.img} resizeMode="cover" source={props.item.image}/>
+      <Contribution data={props.item.date} people={props.item.people}/>
+      <ETHPrice price={props.item.price}/>
+    </View>
+  )
+}
+
 const style = StyleSheet.create({
   subInfo: {
     width: "100%",
@@ -68,7 +90,7 @@ const style = StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal: SIZES.font,
     alignItems: "center",
-    marginTop: -25
+    marginTop: -25,
   },
 
   people: {
@@ -85,12 +107,18 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     ...SHADOWS.dark,
-    backgroundColor: COLORS.white
+    backgroundColor: COLORS.white,
   },
-    
+
   price: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+  },
 
+  contribution: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: SIZES.large
   }
 });
