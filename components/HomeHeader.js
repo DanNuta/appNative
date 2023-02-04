@@ -8,8 +8,14 @@ import {
 } from "react-native";
 import React from "react";
 import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
+import { useLinkProps } from "@react-navigation/native";
 
-export const HomeHeader = () => {
+export const HomeHeader = (props) => {
+
+  function handleSearch(value){
+    props.onSearch(value)
+  }
+
   return (
     <View style={style.container}>
       <View style={style.logo}>
@@ -37,8 +43,8 @@ export const HomeHeader = () => {
         <Text style={style.masterpiece}>Let's find a masterpiece</Text>
       </View>
 
-      <View onPress={() => console.log("sa;;")} style={style.search}>
-        <View onPress={() => console.log("sa;;")}>
+      <View style={style.search}>
+        <View>
           <Image
             style={style.searchImg}
             resizeMode="contain"
@@ -48,7 +54,7 @@ export const HomeHeader = () => {
         <TextInput
           style={style.input}
           placeholder="Search"
-          onChange={() => console.log("sa")}
+          onChangeText={handleSearch}
         />
       </View>
     </View>
