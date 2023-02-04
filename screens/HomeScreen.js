@@ -5,19 +5,19 @@ import { COLORS, NFTData } from "../constants";
 import { NFTCard, FocusedStatus, HomeHeader } from "../components";
 
 export const HomeScreen = ({ navigation }) => {
-
   const [nft, setNft] = useState(NFTData);
 
-  function search(data){
+  function search(data) {
     const value = data;
 
-    if(data === ""){
-      setNft(prev => NFTData)
-    }else{
-      const filterElement = NFTData.filter(item => item.name.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
+    if (data === "") {
+      setNft((prev) => NFTData);
+    } else {
+      const filterElement = NFTData.filter((item) =>
+        item.name.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+      );
 
-      setNft(prev => filterElement)
-
+      setNft((prev) => filterElement);
     }
   }
 
@@ -32,7 +32,7 @@ export const HomeScreen = ({ navigation }) => {
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={<HomeHeader onSearch={search} />}
           renderItem={({ item }) => {
-            return <NFTCard  navigate={navigation} item={item} />;
+            return <NFTCard navigate={navigation} item={item} />;
           }}
         />
       </View>

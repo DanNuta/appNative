@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -6,7 +6,7 @@ import {
   StatusBar,
   Image,
   StyleSheet,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { assets, COLORS, SHADOWS, SIZES, FONTS } from "../constants";
 import {
@@ -23,7 +23,7 @@ import {
   ETHPrice,
   SubInfo,
   NFTTitle,
-  ContributionPerson
+  ContributionPerson,
 } from "../components/SubInfo";
 
 import React from "react";
@@ -43,9 +43,8 @@ export const Review = (props) => {
     console.log("heart");
   }
 
-
-  function readMoreFn(){
-    setRead(prev => !prev);
+  function readMoreFn() {
+    setRead((prev) => !prev);
   }
 
   return (
@@ -79,7 +78,14 @@ export const Review = (props) => {
 
           <View style={style.desShort}>
             <Text>Description</Text>
-            <Text style={{marginTop: SIZES.base}} >{read ? item.description : `${item.description.substring(0, 100)}...`}<Text onPress={readMoreFn}>{read ? `Read Less` : "Read More"}</Text></Text>
+            <Text style={{ marginTop: SIZES.base }}>
+              {read
+                ? item.description
+                : `${item.description.substring(0, 100)}...`}
+              <Text onPress={readMoreFn}>
+                {read ? `Read Less` : "Read More"}
+              </Text>
+            </Text>
           </View>
 
           <View style={style.bids}>
@@ -87,12 +93,10 @@ export const Review = (props) => {
 
             <View>
               {item.bids.map((item, index) => {
-                return <ContributionPerson key={index} item={item}/>
+                return <ContributionPerson key={index} item={item} />;
               })}
             </View>
-
-          </View >
-
+          </View>
         </View>
       </ScrollView>
     </>
@@ -135,6 +139,6 @@ const style = StyleSheet.create({
   },
 
   bids: {
-    marginTop: SIZES.extraLarge
-  }
+    marginTop: SIZES.extraLarge,
+  },
 });

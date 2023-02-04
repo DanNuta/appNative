@@ -11,9 +11,8 @@ import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 import { useLinkProps } from "@react-navigation/native";
 
 export const HomeHeader = (props) => {
-
-  function handleSearch(value){
-    props.onSearch(value)
+  function handleSearch(value) {
+    props.onSearch(value);
   }
 
   return (

@@ -61,27 +61,24 @@ export const SubInfo = (props) => {
   );
 };
 
-
 const Contribution = (props) => {
   return (
     <View>
       <Text>{`Bid place by ${props.people}`}</Text>
       <Text>{props.data}</Text>
     </View>
-  )
-}
-
+  );
+};
 
 export const ContributionPerson = (props) => {
   return (
-
     <View style={style.contribution}>
-      <Image style={style.img} resizeMode="cover" source={props.item.image}/>
-      <Contribution data={props.item.date} people={props.item.people}/>
-      <ETHPrice price={props.item.price}/>
+      <Image style={style.img} resizeMode="cover" source={props.item.image} />
+      <Contribution data={props.item.date} people={props.item.people} />
+      <ETHPrice price={props.item.price} />
     </View>
-  )
-}
+  );
+};
 
 const style = StyleSheet.create({
   subInfo: {
@@ -119,6 +116,6 @@ const style = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: SIZES.large
-  }
+    marginTop: SIZES.large,
+  },
 });
